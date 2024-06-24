@@ -40,4 +40,6 @@
 
 ### Решение задачи 5
 
-[Команды Ubunu](./prinScrin/задание%205.pdf)
+[Команды Ubunu][def]
+
+[def]: ./prinScrin/задание%205.pdf
