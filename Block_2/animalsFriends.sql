@@ -1,27 +1,12 @@
-# Блок 2. Объектно-ориентированное программирование + SQL
+-- 7. В подключенном MySQL репозитории создать базу данных “Друзья
+--    человека”
 
-## Задания
-
-6. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
-животные и вьючные животные, в составы которых в случае домашних
-животных войдут классы: собаки, кошки, хомяки, а в класс вьючные животные
-войдут: Лошади, верблюды и ослы.
-
-### Решение задачи 6
-
-![Диаграмма классов](./img/Диаграмма%20без%20названия.drawio.png)
-
-7. В подключенном MySQL репозитории создать базу данных “Друзья человека”
-
-```sql
 CREATE DATABASE animalsFriends;
 
 USE animalsFriends;
-```
 
-8. Создать таблицы с иерархией из диаграммы в БД
+-- 8. Создать таблицы с иерархией из диаграммы в БД
 
-```sql
 CREATE TABLE animals
 (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,11 +37,10 @@ CREATE TABLE pack_animals
 
 INSERT INTO pack_animals (animal_kind)
 VALUES ('Лошади'), ('Верблюды'), ('Ослы');
-```
 
-9. Заполнить низкоуровневые таблицы именами(животных), командами которые они выполняют и датами рождения
+-- 9. Заполнить низкоуровневые таблицы именами(животных), командами
+--    которые они выполняют и датами рождения.
 
-```sql
 CREATE TABLE dogs 
 (       
     id INT AUTO_INCREMENT PRIMARY KEY, 
@@ -146,23 +130,19 @@ INSERT INTO donkeys (name, commands, birthday)
 VALUES ('Чоко', 'вперед, стоять', '2020-03-19'),
 ('Денвер', 'идти, стоять', '2017-10-15'),
 ('Изабель', 'шагом, вперед', '2022-08-24');
-```
 
-10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
-питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+-- 10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+--     питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
 
-```sql
 DELETE FROM camels;
 
 CREATE TABLE horses_and_donkeys SELECT * FROM horses
 UNION SELECT * FROM donkeys;
-```
 
-11. Создать новую таблицу “молодые животные” в которую попадут все
-животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
-до месяца подсчитать возраст животных в новой таблице
+-- 11. Создать новую таблицу “молодые животные” в которую попадут все
+--     животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
+--     до месяца подсчитать возраст животных в новой таблице
 
-```sql
 CREATE TEMPORARY TABLE all_animals
 SELECT * FROM dogs
 UNION SELECT * FROM cats
@@ -175,12 +155,10 @@ CREATE TABLE young_animals
 SELECT name, commands, birthday, animal_kind_id, TIMESTAMPDIFF(MONTH, birthday, CURDATE()) AS age_in_month
 FROM all_animals
 WHERE birthday BETWEEN ADDDATE(CURDATE(), INTERVAL -3 YEAR) AND ADDDATE(CURDATE(), INTERVAL -1 YEAR);
-```
 
-12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
-прошлую принадлежность к старым таблицам.
+-- 12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+--     прошлую принадлежность к старым таблицам.
 
-```sql
 SELECT dogs.name, dogs.commands, dogs.birthday, pets.animal_kind, animals.animal_type
 FROM dogs
 LEFT JOIN pets ON pets.id = dogs.animal_kind_id
@@ -210,4 +188,3 @@ SELECT donkeys.name, donkeys.commands, donkeys.birthday, pack_animals.animal_kin
 FROM donkeys
 LEFT JOIN pack_animals ON pack_animals.id = donkeys.animal_kind_id
 LEFT JOIN animals ON animals.id=pack_animals.animal_type_id;
-```
