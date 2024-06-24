@@ -40,4 +40,4 @@
 
 ### Решение задачи 5
 
-[Команды Ubuntu](./prinScrin/задание%205.pdf)
+[Команды Ubuntu](./printScrin/задание%205.pdf)
