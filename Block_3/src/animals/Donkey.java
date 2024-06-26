@@ -1,9 +1,11 @@
-package animals;
-
-import java.util.List;
-
-public class Donkey extends PackAnimals{
-    public Donkey(String name, int age, List<String> commands) {
-        super(name, age, commands);
-    }
-}
+//package animals;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//public class Donkey extends PackAnimals{
+//
+//    public Donkey(int id, String name, int age, ArrayList<String> commands) {
+//        super(id, name, age, commands);
+//    }
+//}

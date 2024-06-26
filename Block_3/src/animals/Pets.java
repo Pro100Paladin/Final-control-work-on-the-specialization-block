@@ -1,12 +1,10 @@
 package animals;
 
-import animals.Animals;
+import management.Skills;
 
-import java.util.List;
+public abstract class Pets extends Animals {
 
-public class Pets extends Animals {
-
-    public Pets(String name, int age, List<String> commands) {
-        super(name, age, commands);
+    public Pets(int id, String name, int birthDate, Skills skills) {
+        super(id, name, birthDate, skills);
     }
 }

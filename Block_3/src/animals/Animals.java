@@ -1,37 +1,29 @@
 package animals;
 
+import management.Skills;
+
 import java.util.ArrayList;
-import java.util.List;
 
-public abstract class Animals {
-    final String name;
-    int age;
-    List<String> commands = new ArrayList<>();
+public class Animals {
+    private final int id;
+    private final String name;
+    private final int birthDate;
+    private final Skills skills;
 
-
-    public Animals(String name, int age, List<String> commands) {
+    public Animals(int id, String name, int birthDate, Skills skills) {
+        this.id = id;
         this.name = name;
-        this.age = age;
-        this.commands = commands;
+        this.birthDate = birthDate;
+        this.skills = skills;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public List<String> getCommands() {
-        return commands;
-    }
-
-    public void setCommands(List<String> commands) {
-        this.commands = commands;
+    @Override
+    public String toString() {
+        return "Pets {" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthDate=" + birthDate +
+                ", skills=" + skills +
+                '}';
     }
 }
