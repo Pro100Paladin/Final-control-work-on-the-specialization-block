@@ -1,10 +1,11 @@
 package animals;
 
-import management.Skills;
+import javax.xml.crypto.Data;
+import java.util.Date;
 
 public abstract class Pets extends Animals {
 
-    public Pets(int id, String name, int birthDate, Skills skills) {
-        super(id, name, birthDate, skills);
-    }
-}
+     public Pets(String name, Date berthDay) {
+         super(name, berthDay);
+     }
+ }

@@ -1,12 +1,13 @@
-//package animals;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//public class Horse extends PackAnimals{
-//
-//
-//    public Horse(int id, String name, int age, ArrayList<String> commands) {
-//        super(id, name, age, commands);
-//    }
-//}
+package animals;
+
+
+import javax.xml.crypto.Data;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Horse extends PackAnimals{
+
+    public Horse(String name, Date berthDay) {
+        super(name, berthDay);
+    }
+}

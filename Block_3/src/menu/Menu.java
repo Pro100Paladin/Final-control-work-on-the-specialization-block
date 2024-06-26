@@ -1,5 +1,7 @@
 package menu;
 
+import management.AnimalRegister;
+
 import java.util.Scanner;
 
 
@@ -8,38 +10,50 @@ public class Menu {
 
 
     public static void menu() {
-        Scanner userText = new Scanner(System.in);
-        int userTextMenu;
-        do {
-            System.out.println("\u001B[34m" + "Реестр домашних животных v1.0");
-            System.out.println("\u001B[32m" + "----------------------------------------" + "\u001B[0m");
-            System.out.println("1.: Кол-во домашних животных: ");
-            System.out.println("2.: Список домашних животных: ");
-            System.out.println("3.: Команды домашних животных: ");
-            System.out.println("4.: Обучить животное новой команде: ");
-            System.out.println("5.: Завести новое животное: ");
-            System.out.println("6.: Исключит животное: ");
-            System.out.println("7. Выход:");
-            System.out.println("\u001b[31m" + "введите пункт меню: " + "\u001b[0m");
+        Scanner scanner = new Scanner(System.in);
+        AnimalRegister reg = new AnimalRegister();
+        boolean exit = false;
 
-            userTextMenu = userText.nextInt();
-        }while (userTextMenu > 7);
-            switch (userTextMenu){
-                case 1: System.out.println("rjv");
+        System.out.println("\u001b[34m" + "Реестр домашних животных V1.0");
+        System.out.println("\u001b[32m" + "----------------------------------------------");
+
+        while (!exit) {
+
+            System.out.println("\u001b[35m\nМеню:");
+            System.out.println("1. Добавить новое животное");
+            System.out.println("2. Список команд животного");
+            System.out.println("3. Обучение новым командам");
+            System.out.println("4. Вывести список животных по дате рождения");
+            System.out.println("5. Показать общее количество животных");
+            System.out.println("6. Выход");
+            System.out.print("\u001b[34m" +"Выберите пункт меню: " + "\u001b[0m");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    reg.addNewAnimal(scanner);
                     break;
-                case 2: System.out.println();
+                case 2:
+                    reg.showAnimalCommands(scanner);
                     break;
-                case 3: System.out.println();
+                case 3:
+                    reg.trainNewCommand(scanner);
                     break;
-                case 4: System.out.println("rjv");
+                case 4:
+                    reg.listAnimalsByBirthDate();
                     break;
-                case 5: System.out.println();
+                case 5:
+                    reg.showAnimalCount();
                     break;
-                case 6: System.out.println();
+                case 6:
+                    exit = true;
                     break;
-                case 7: System.out.println("До свидания :)");
-                    break;
+                default:
+                    System.out.println("Неверный выбор. Попробуйте снова.");
+            }
         }
+        scanner.close();
     }
 }
 

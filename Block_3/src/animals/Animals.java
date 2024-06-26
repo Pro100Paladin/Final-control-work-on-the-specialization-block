@@ -1,29 +1,66 @@
 package animals;
 
-import management.Skills;
+
 
 import java.util.ArrayList;
+import java.util.Date;
 
-public class Animals {
-    private final int id;
-    private final String name;
-    private final int birthDate;
-    private final Skills skills;
+public abstract class Animals {
 
-    public Animals(int id, String name, int birthDate, Skills skills) {
-        this.id = id;
+    protected static int id;
+    protected String name;
+    protected Date berthDay;
+    protected ArrayList <String> commands;
+    private static int animalCount = 0;
+
+    public Animals(String name, Date berthDay) {
         this.name = name;
-        this.birthDate = birthDate;
-        this.skills = skills;
+        this.berthDay = berthDay;
+        this.commands = new ArrayList<>();
+        animalCount++;
     }
 
-    @Override
-    public String toString() {
-        return "Pets {" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                ", skills=" + skills +
-                '}';
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        Animals.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getBerthDay() {
+        return berthDay;
+    }
+
+    public void setBerthDay(Date berthDay) {
+        this.berthDay = berthDay;
+    }
+
+    public ArrayList<String> getCommands() {
+        return commands;
+    }
+
+    public void setCommands(ArrayList<String> commands) {
+        this.commands = commands;
+    }
+
+    public void addCommand(String command) {
+        commands.add(command);
+    }
+
+    public static int getAnimalCount() {
+        return animalCount;
+    }
+
+    public static void setAnimalCount(int animalCount) {
+        Animals.animalCount = animalCount;
     }
 }
