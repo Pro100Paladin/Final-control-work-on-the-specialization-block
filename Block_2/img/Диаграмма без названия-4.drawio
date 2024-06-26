@@ -4,13 +4,13 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="6Y0ZALxsctHm60POBdN--3" value="class Animals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="6Y0ZALxsctHm60POBdN--3" value="class animals.Animals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="290" width="120" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="6Y0ZALxsctHm60POBdN--5" value="class Pets" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="6Y0ZALxsctHm60POBdN--5" value="class animals.Pets" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="200" y="400" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="6Y0ZALxsctHm60POBdN--6" value="class PackAnimals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="6Y0ZALxsctHm60POBdN--6" value="class animals.PackAnimals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="520" y="400" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="6Y0ZALxsctHm60POBdN--9" value="class Dogs" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
