@@ -2,6 +2,7 @@ package menu;
 
 import management.AnimalRegister;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -9,7 +10,8 @@ import java.util.Scanner;
 public class Menu {
 
 
-    public static void menu() {
+    public static void menu(){
+
         Scanner scanner = new Scanner(System.in);
         AnimalRegister reg = new AnimalRegister();
         boolean exit = false;
@@ -27,10 +29,11 @@ public class Menu {
             System.out.println("5. Показать общее количество животных");
             System.out.println("6. Выход");
             System.out.print("\u001b[34m" +"Выберите пункт меню: " + "\u001b[0m");
-            int choice = scanner.nextInt();
+            int number = scanner.nextInt();
             scanner.nextLine(); // consume newline
 
-            switch (choice) {
+
+            switch (number) {
                 case 1:
                     reg.addNewAnimal(scanner);
                     break;

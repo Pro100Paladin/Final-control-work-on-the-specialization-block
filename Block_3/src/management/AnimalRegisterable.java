@@ -1,9 +1,10 @@
 package management;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public interface AnimalRegisterInterface {
-    void addNewAnimal(Scanner scanner);
+public interface AnimalRegisterable {
+    void addNewAnimal(Scanner scanner) throws FileNotFoundException;
     void showAnimalCommands(Scanner scanner);
     void trainNewCommand(Scanner scanner);
     void listAnimalsByBirthDate();

@@ -1,6 +1,5 @@
 package animals;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Camel extends PackAnimals{

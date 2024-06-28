@@ -1,7 +1,6 @@
 package animals;
 
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -62,5 +61,14 @@ public abstract class Animals {
 
     public static void setAnimalCount(int animalCount) {
         Animals.animalCount = animalCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Animals{ " +
+                "name='" + name + '\'' +
+                ", berthDay=" + berthDay +
+                ", commands=" + commands +
+                '}';
     }
 }

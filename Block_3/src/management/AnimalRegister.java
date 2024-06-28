@@ -3,18 +3,40 @@ package management;
 import animals.Animals;
 import animals.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import javax.xml.namespace.QName;
+import java.awt.List;
+import java.beans.XMLEncoder;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class AnimalRegister implements AnimalRegisterInterface{
-    Path out = Paths.get("output.txt");
-    private static List<Animals> animalRegistry = new ArrayList<>();
+import static java.io.File.*;
+
+
+public  class AnimalRegister implements AnimalRegisterable {
+
+
+    static ArrayList<Animals> animalRegister;
+
+    static {
+        animalRegister = new ArrayList<Animals>();
+        XMLEncoder e = null;
+        try {
+            e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("Block_3/src/output.xml")));
+        } catch (FileNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
+        e.writeObject(animalRegister);
+        e.close();
+    }
+
 
     @Override
     public void addNewAnimal(Scanner scanner) {
+
         System.out.println("Выберите тип животного:");
         System.out.println("1. Собака");
         System.out.println("2. Кошка");
@@ -24,6 +46,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
         System.out.println("6. Осел");
         int number = scanner.nextInt();
         scanner.nextLine();
+
 
         System.out.print("Введите имя животного: ");
         String name = scanner.nextLine();
@@ -61,7 +84,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
                 System.out.println("Неверный выбор.");
                 return;
         }
-        animalRegistry.add(animal);
+        animalRegister.add(animal);
         System.out.println("Животное добавлено в реестр.");
     }
 
@@ -97,7 +120,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
 
     @Override
     public void listAnimalsByBirthDate() {
-        Collections.sort(animalRegistry, new Comparator<Animals>() {
+        Collections.sort(animalRegister, new Comparator<Animals>() {
             @Override
             public int compare(Animals a1, Animals a2) {
                 return a1.getBerthDay().compareTo(a2.getBerthDay());
@@ -105,10 +128,11 @@ public class AnimalRegister implements AnimalRegisterInterface{
         });
 
         System.out.println("Список животных по дате рождения:");
-        for (Animals animal : animalRegistry) {
+        for (Animals animal : animalRegister) {
             System.out.println(animal.getName() + " - " + new SimpleDateFormat("dd-MM-yyyy").format(animal.getBerthDay()));
         }
     }
+
 
     @Override
     public void showAnimalCount() {
@@ -116,11 +140,55 @@ public class AnimalRegister implements AnimalRegisterInterface{
     }
 
     private static Animals findAnimalByName(String name) {
-        for (Animals animal : animalRegistry) {
+        for (Animals animal : animalRegister) {
             if (animal.getName().equalsIgnoreCase(name)) {
                 return animal;
             }
         }
         return null;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
