@@ -28,7 +28,7 @@ public class Menu {
             System.out.println("6. Выход");
             System.out.print("\u001b[34m" +"Выберите пункт меню: " + "\u001b[0m");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:

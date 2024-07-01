@@ -1,6 +1,5 @@
 package animals;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 public abstract class Pets extends Animals {

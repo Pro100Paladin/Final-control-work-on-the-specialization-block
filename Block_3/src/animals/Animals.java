@@ -1,7 +1,6 @@
 package animals;
 
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,7 +9,7 @@ public abstract class Animals {
     protected static int id;
     protected String name;
     protected Date berthDay;
-    protected ArrayList <String> commands;
+    protected ArrayList<String> commands;
     private static int animalCount = 0;
 
     public Animals(String name, Date berthDay) {
@@ -32,10 +31,6 @@ public abstract class Animals {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Date getBerthDay() {
         return berthDay;
     }
@@ -48,10 +43,6 @@ public abstract class Animals {
         return commands;
     }
 
-    public void setCommands(ArrayList<String> commands) {
-        this.commands = commands;
-    }
-
     public void addCommand(String command) {
         commands.add(command);
     }
@@ -60,7 +51,4 @@ public abstract class Animals {
         return animalCount;
     }
 
-    public static void setAnimalCount(int animalCount) {
-        Animals.animalCount = animalCount;
-    }
 }

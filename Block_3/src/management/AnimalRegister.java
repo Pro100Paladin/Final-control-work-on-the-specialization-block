@@ -3,14 +3,11 @@ package management;
 import animals.Animals;
 import animals.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class AnimalRegister implements AnimalRegisterInterface{
-    Path out = Paths.get("output.txt");
     private static List<Animals> animalRegistry = new ArrayList<>();
 
     @Override
@@ -97,7 +94,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
 
     @Override
     public void listAnimalsByBirthDate() {
-        Collections.sort(animalRegistry, new Comparator<Animals>() {
+        animalRegistry.sort(new Comparator<Animals>() {
             @Override
             public int compare(Animals a1, Animals a2) {
                 return a1.getBerthDay().compareTo(a2.getBerthDay());
