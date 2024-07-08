@@ -7,18 +7,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class AnimalRegister implements AnimalRegisterInterface{
-    private static List<Animals> animalRegistry = new ArrayList<>();
+public class AnimalRegister implements AnimalRegisterInterface {
+    private final static List<Animals> animalRegistry = new ArrayList<>();
 
     @Override
     public void addNewAnimal(Scanner scanner) {
-        System.out.println("Выберите тип животного:");
-        System.out.println("1. Собака");
+        System.out.println("\u001b[34m" + "Выберите тип животного:");
+        System.out.println("\u001b[35m" + "1. Собака");
         System.out.println("2. Кошка");
         System.out.println("3. Хомяк");
         System.out.println("4. Лошадь");
         System.out.println("5. Верблюд");
-        System.out.println("6. Осел");
+        System.out.println("6. Осел" + "\u001b[0m");
         int number = scanner.nextInt();
         scanner.nextLine();
 
@@ -33,7 +33,6 @@ public class AnimalRegister implements AnimalRegisterInterface{
             System.out.println("Неверный формат даты.");
             return;
         }
-
         Animals animal;
         switch (number) {
             case 1:
@@ -59,7 +58,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
                 return;
         }
         animalRegistry.add(animal);
-        System.out.println("Животное добавлено в реестр.");
+        System.out.println("Животное добавлено.");
     }
 
     @Override
@@ -68,7 +67,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
         String name = scanner.nextLine();
         Animals animal = findAnimalByName(name);
         if (animal != null) {
-            System.out.println("Команды, которые может выполнять " + animal.getName() + ":");
+            System.out.println("Команды, которые может выполнять " + animal.getType() + " - " + animal.getName() + ":");
             for (String command : animal.getCommands()) {
                 System.out.println("- " + command);
             }
@@ -103,7 +102,7 @@ public class AnimalRegister implements AnimalRegisterInterface{
 
         System.out.println("Список животных по дате рождения:");
         for (Animals animal : animalRegistry) {
-            System.out.println(animal.getName() + " - " + new SimpleDateFormat("dd-MM-yyyy").format(animal.getBerthDay()));
+            System.out.println(animal.getType() + " - " + animal.getName() + " - " + new SimpleDateFormat("dd-MM-yyyy").format(animal.getBerthDay()));
         }
     }
 

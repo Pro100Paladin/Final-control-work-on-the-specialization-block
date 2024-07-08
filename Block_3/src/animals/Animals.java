@@ -9,12 +9,14 @@ public abstract class Animals {
     protected static int id;
     protected String name;
     protected Date berthDay;
+    protected String type;
     protected ArrayList<String> commands;
     private static int animalCount = 0;
 
-    public Animals(String name, Date berthDay) {
+    public Animals(String name, Date berthDay, String type) {
         this.name = name;
         this.berthDay = berthDay;
+        this.type = type;
         this.commands = new ArrayList<>();
         animalCount++;
     }
@@ -51,4 +53,11 @@ public abstract class Animals {
         return animalCount;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

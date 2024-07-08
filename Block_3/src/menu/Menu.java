@@ -12,11 +12,11 @@ public class Menu {
     public static void menu() {
         Scanner scanner = new Scanner(System.in);
         AnimalRegister reg = new AnimalRegister();
-        boolean exit = false;
 
         System.out.println("\u001b[34m" + "Реестр домашних животных V1.0");
         System.out.println("\u001b[32m" + "----------------------------------------------");
 
+        boolean exit = false;
         while (!exit) {
 
             System.out.println("\u001b[35m\nМеню:");
