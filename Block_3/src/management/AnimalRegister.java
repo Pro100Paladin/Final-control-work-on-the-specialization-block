@@ -7,8 +7,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static db.DateBase.getAnimalRegistry;
+
 public class AnimalRegister implements AnimalRegisterInterface {
-    private final static List<Animals> animalRegistry = new ArrayList<>();
 
     @Override
     public void addNewAnimal(Scanner scanner) {
@@ -57,7 +58,7 @@ public class AnimalRegister implements AnimalRegisterInterface {
                 System.out.println("Неверный выбор.");
                 return;
         }
-        animalRegistry.add(animal);
+        getAnimalRegistry().add(animal);
         System.out.println("Животное добавлено.");
     }
 
@@ -93,7 +94,7 @@ public class AnimalRegister implements AnimalRegisterInterface {
 
     @Override
     public void listAnimalsByBirthDate() {
-        animalRegistry.sort(new Comparator<Animals>() {
+        getAnimalRegistry().sort(new Comparator<Animals>() {
             @Override
             public int compare(Animals a1, Animals a2) {
                 return a1.getBerthDay().compareTo(a2.getBerthDay());
@@ -101,7 +102,7 @@ public class AnimalRegister implements AnimalRegisterInterface {
         });
 
         System.out.println("Список животных по дате рождения:");
-        for (Animals animal : animalRegistry) {
+        for (Animals animal : getAnimalRegistry()) {
             System.out.println(animal.getType() + " - " + animal.getName() + " - " + new SimpleDateFormat("dd-MM-yyyy").format(animal.getBerthDay()));
         }
     }
@@ -112,7 +113,7 @@ public class AnimalRegister implements AnimalRegisterInterface {
     }
 
     private static Animals findAnimalByName(String name) {
-        for (Animals animal : animalRegistry) {
+        for (Animals animal : getAnimalRegistry()) {
             if (animal.getName().equalsIgnoreCase(name)) {
                 return animal;
             }

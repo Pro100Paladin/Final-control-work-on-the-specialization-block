@@ -1,10 +1,11 @@
 package animals;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class Animals {
+public abstract class Animals implements Serializable {
 
     protected static int id;
     protected String name;
@@ -20,6 +21,7 @@ public abstract class Animals {
         this.commands = new ArrayList<>();
         animalCount++;
     }
+
 
     public static int getId() {
         return id;
