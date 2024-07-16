@@ -2,6 +2,7 @@ package management;
 
 import animals.Animals;
 import animals.*;
+import db.DataBase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -109,7 +110,8 @@ public class AnimalRegister implements AnimalRegisterInterface {
 
     @Override
     public void showAnimalCount() {
-        System.out.println("Общее количество животных: " + Animals.getAnimalCount());
+        int size = DataBase.getAnimalRegistry().size();
+        System.out.println("Общее количество животных: " + size);
     }
 
     private static Animals findAnimalByName(String name) {
