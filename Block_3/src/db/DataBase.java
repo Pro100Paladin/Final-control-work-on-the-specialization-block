@@ -19,7 +19,9 @@ public class DataBase {
 
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Block_3/src/db/animal.txt"))) {
             animalRegistry = (ArrayList<Animals>) inputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
