@@ -12,24 +12,14 @@ public abstract class Animals implements Serializable {
     protected Date berthDay;
     protected String type;
     protected ArrayList<String> commands;
-//    private static int animalCount = 0;
 
     public Animals(String name, Date berthDay, String type) {
         this.name = name;
         this.berthDay = berthDay;
         this.type = type;
         this.commands = new ArrayList<>();
-//        animalCount++;
     }
 
-
-    public static int getId() {
-        return id;
-    }
-
-    public static void setId(int id) {
-        Animals.id = id;
-    }
 
     public String getName() {
         return name;
@@ -39,9 +29,6 @@ public abstract class Animals implements Serializable {
         return berthDay;
     }
 
-    public void setBerthDay(Date berthDay) {
-        this.berthDay = berthDay;
-    }
 
     public ArrayList<String> getCommands() {
         return commands;
@@ -50,10 +37,6 @@ public abstract class Animals implements Serializable {
     public void addCommand(String command) {
         commands.add(command);
     }
-
-//    public static int getAnimalCount() {
-//        return animalCount;
-//    }
 
     public String getType() {
         return type;

@@ -6,7 +6,6 @@ import management.AnimalRegister;
 import java.util.Scanner;
 
 
-
 public class Menu {
 
 
@@ -27,7 +26,7 @@ public class Menu {
             System.out.println("4. Вывести список животных по дате рождения");
             System.out.println("5. Показать общее количество животных");
             System.out.println("6. Выход");
-            System.out.print("\u001b[34m" +"Выберите пункт меню: " + "\u001b[0m");
+            System.out.print("\u001b[34m" + "Выберите пункт меню: " + "\u001b[0m");
             int choice = scanner.nextInt();
             scanner.nextLine();
 

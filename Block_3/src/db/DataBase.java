@@ -11,17 +11,15 @@ public class DataBase {
     private static ArrayList<Animals> animalRegistry = new ArrayList<>();
 
     static {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Block_3/src/db/animal.txt",true))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Block_3/src/db/animal.txt", true))) {
             outputStream.writeObject(getAnimalRegistry());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Block_3/src/db/animal.txt"))){
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Block_3/src/db/animal.txt"))) {
             animalRegistry = (ArrayList<Animals>) inputStream.readObject();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
@@ -30,8 +28,8 @@ public class DataBase {
         return animalRegistry;
     }
 
-    public static void saveList(){
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Block_3/src/db/animal.txt"))){
+    public static void saveList() {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Block_3/src/db/animal.txt"))) {
             outputStream.writeObject(getAnimalRegistry());
         } catch (IOException e) {
             throw new RuntimeException(e);
