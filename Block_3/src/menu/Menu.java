@@ -1,6 +1,6 @@
 package menu;
 
-import db.DateBase;
+import db.DataBase;
 import management.AnimalRegister;
 
 import java.util.Scanner;
@@ -48,7 +48,7 @@ public class Menu {
                     reg.showAnimalCount();
                     break;
                 case 6:
-                    DateBase.saveList();
+                    DataBase.saveList();
                     exit = true;
                     break;
                 default:

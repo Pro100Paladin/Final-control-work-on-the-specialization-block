@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-public class DateBase {
+public class DataBase {
 
     private static ArrayList<Animals> animalRegistry;
 

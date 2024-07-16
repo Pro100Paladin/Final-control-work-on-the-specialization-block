@@ -7,7 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static db.DateBase.getAnimalRegistry;
+import static db.DataBase.getAnimalRegistry;
 
 public class AnimalRegister implements AnimalRegisterInterface {
 
