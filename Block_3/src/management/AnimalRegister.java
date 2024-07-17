@@ -35,33 +35,35 @@ public class AnimalRegister implements AnimalRegisterInterface {
             System.out.println("Неверный формат даты.");
             return;
         }
-        Animals animal;
-        switch (number) {
-            case 1:
-                animal = new Dog(name, birthDate);
-                break;
-            case 2:
-                animal = new Cat(name, birthDate);
-                break;
-            case 3:
-                animal = new Hamster(name, birthDate);
-                break;
-            case 4:
-                animal = new Horse(name, birthDate);
-                break;
-            case 5:
-                animal = new Camel(name, birthDate);
-                break;
-            case 6:
-                animal = new Donkey(name, birthDate);
-                break;
-            default:
-                System.out.println("Неверный выбор.");
-                return;
+            Animals animal;
+            switch (number) {
+                case 1:
+                    animal = new Dog(name, birthDate);
+                    break;
+                case 2:
+                    animal = new Cat(name, birthDate);
+                    break;
+                case 3:
+                    animal = new Hamster(name, birthDate);
+                    break;
+                case 4:
+                    animal = new Horse(name, birthDate);
+                    break;
+                case 5:
+                    animal = new Camel(name, birthDate);
+                    break;
+                case 6:
+                    animal = new Donkey(name, birthDate);
+                    break;
+                default:
+                    System.out.println("Неверный выбор.");
+                    return;
+            }
+
+            getAnimalRegistry().add(animal);
+            System.out.println("Животное добавлено.");
         }
-        getAnimalRegistry().add(animal);
-        System.out.println("Животное добавлено.");
-    }
+
 
     @Override
     public void showAnimalCommands(Scanner scanner) {
