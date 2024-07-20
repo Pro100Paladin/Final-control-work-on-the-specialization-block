@@ -9,15 +9,16 @@ import java.util.ArrayList;
 public class DataBase {
 
     private static ArrayList<Animals> animalRegistry = new ArrayList<>();
+    private static final String LOG_PATH = "Block_3/src/db/animal.bin";
 
     static {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Block_3/src/db/animal.txt", true))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(LOG_PATH, true))) {
             outputStream.writeObject(getAnimalRegistry());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("Block_3/src/db/animal.txt"))) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(LOG_PATH))) {
             animalRegistry = (ArrayList<Animals>) inputStream.readObject();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -31,7 +32,7 @@ public class DataBase {
     }
 
     public static void saveList() {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("Block_3/src/db/animal.txt"))) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(LOG_PATH))) {
             outputStream.writeObject(getAnimalRegistry());
         } catch (IOException e) {
             throw new RuntimeException(e);

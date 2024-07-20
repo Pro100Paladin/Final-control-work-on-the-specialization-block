@@ -13,6 +13,7 @@ public abstract class Animals implements Serializable {
     protected String type;
     protected ArrayList<String> commands;
 
+
     public Animals(String name, Date berthDay, String type) {
         this.name = name;
         this.berthDay = berthDay;
